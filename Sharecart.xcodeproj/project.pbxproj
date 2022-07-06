@@ -1,0 +1,419 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3976103928760FDC003EB1AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3976103828760FDC003EB1AB /* AppDelegate.m */; };
+		3976103C28760FDC003EB1AB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3976103B28760FDC003EB1AB /* SceneDelegate.m */; };
+		3976103F28760FDC003EB1AB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3976103E28760FDC003EB1AB /* ViewController.m */; };
+		3976104228760FDC003EB1AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3976104028760FDC003EB1AB /* Main.storyboard */; };
+		3976104428760FDC003EB1AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3976104328760FDC003EB1AB /* Assets.xcassets */; };
+		3976104728760FDC003EB1AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3976104528760FDC003EB1AB /* LaunchScreen.storyboard */; };
+		3976104A28760FDD003EB1AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3976104928760FDD003EB1AB /* main.m */; };
+		EB541CAE080DEC0EECA2F8D6 /* Pods_Sharecart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D798B63256236A4CA97E8C8F /* Pods_Sharecart.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3976103428760FDC003EB1AB /* Sharecart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharecart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3976103728760FDC003EB1AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3976103828760FDC003EB1AB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3976103A28760FDC003EB1AB /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		3976103B28760FDC003EB1AB /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		3976103D28760FDC003EB1AB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3976103E28760FDC003EB1AB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3976104128760FDC003EB1AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3976104328760FDC003EB1AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3976104628760FDC003EB1AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3976104828760FDC003EB1AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3976104928760FDD003EB1AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4FD09E466A961F8F5D83A143 /* Pods-Sharecart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharecart.debug.xcconfig"; path = "Target Support Files/Pods-Sharecart/Pods-Sharecart.debug.xcconfig"; sourceTree = "<group>"; };
+		D3B350C605E9BD3CC1CF7DE1 /* Pods-Sharecart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharecart.release.xcconfig"; path = "Target Support Files/Pods-Sharecart/Pods-Sharecart.release.xcconfig"; sourceTree = "<group>"; };
+		D798B63256236A4CA97E8C8F /* Pods_Sharecart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sharecart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3976103128760FDC003EB1AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB541CAE080DEC0EECA2F8D6 /* Pods_Sharecart.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3976102B28760FDC003EB1AB = {
+			isa = PBXGroup;
+			children = (
+				3976103628760FDC003EB1AB /* Sharecart */,
+				3976103528760FDC003EB1AB /* Products */,
+				FC11526115D64CA9681F5F1B /* Pods */,
+				78E0A9A28CDB6481C5DF299A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3976103528760FDC003EB1AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3976103428760FDC003EB1AB /* Sharecart.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3976103628760FDC003EB1AB /* Sharecart */ = {
+			isa = PBXGroup;
+			children = (
+				3976103728760FDC003EB1AB /* AppDelegate.h */,
+				3976103828760FDC003EB1AB /* AppDelegate.m */,
+				3976103A28760FDC003EB1AB /* SceneDelegate.h */,
+				3976103B28760FDC003EB1AB /* SceneDelegate.m */,
+				3976103D28760FDC003EB1AB /* ViewController.h */,
+				3976103E28760FDC003EB1AB /* ViewController.m */,
+				3976104028760FDC003EB1AB /* Main.storyboard */,
+				3976104328760FDC003EB1AB /* Assets.xcassets */,
+				3976104528760FDC003EB1AB /* LaunchScreen.storyboard */,
+				3976104828760FDC003EB1AB /* Info.plist */,
+				3976104928760FDD003EB1AB /* main.m */,
+			);
+			path = Sharecart;
+			sourceTree = "<group>";
+		};
+		78E0A9A28CDB6481C5DF299A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D798B63256236A4CA97E8C8F /* Pods_Sharecart.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC11526115D64CA9681F5F1B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4FD09E466A961F8F5D83A143 /* Pods-Sharecart.debug.xcconfig */,
+				D3B350C605E9BD3CC1CF7DE1 /* Pods-Sharecart.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3976103328760FDC003EB1AB /* Sharecart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3976104D28760FDD003EB1AB /* Build configuration list for PBXNativeTarget "Sharecart" */;
+			buildPhases = (
+				983355F9C647D9A5FC2D7873 /* [CP] Check Pods Manifest.lock */,
+				3976103028760FDC003EB1AB /* Sources */,
+				3976103128760FDC003EB1AB /* Frameworks */,
+				3976103228760FDC003EB1AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sharecart;
+			productName = Sharecart;
+			productReference = 3976103428760FDC003EB1AB /* Sharecart.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3976102C28760FDC003EB1AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					3976103328760FDC003EB1AB = {
+						CreatedOnToolsVersion = 13.4;
+					};
+				};
+			};
+			buildConfigurationList = 3976102F28760FDC003EB1AB /* Build configuration list for PBXProject "Sharecart" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3976102B28760FDC003EB1AB;
+			productRefGroup = 3976103528760FDC003EB1AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3976103328760FDC003EB1AB /* Sharecart */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3976103228760FDC003EB1AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3976104728760FDC003EB1AB /* LaunchScreen.storyboard in Resources */,
+				3976104428760FDC003EB1AB /* Assets.xcassets in Resources */,
+				3976104228760FDC003EB1AB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		983355F9C647D9A5FC2D7873 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sharecart-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3976103028760FDC003EB1AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3976103F28760FDC003EB1AB /* ViewController.m in Sources */,
+				3976103928760FDC003EB1AB /* AppDelegate.m in Sources */,
+				3976104A28760FDD003EB1AB /* main.m in Sources */,
+				3976103C28760FDC003EB1AB /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3976104028760FDC003EB1AB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3976104128760FDC003EB1AB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3976104528760FDC003EB1AB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3976104628760FDC003EB1AB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3976104B28760FDD003EB1AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3976104C28760FDD003EB1AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3976104E28760FDD003EB1AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FD09E466A961F8F5D83A143 /* Pods-Sharecart.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W9L5UCDJ5P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sharecart/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tariqmeta.Sharecart;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3976104F28760FDD003EB1AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3B350C605E9BD3CC1CF7DE1 /* Pods-Sharecart.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W9L5UCDJ5P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sharecart/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tariqmeta.Sharecart;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3976102F28760FDC003EB1AB /* Build configuration list for PBXProject "Sharecart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3976104B28760FDD003EB1AB /* Debug */,
+				3976104C28760FDD003EB1AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3976104D28760FDD003EB1AB /* Build configuration list for PBXNativeTarget "Sharecart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3976104E28760FDD003EB1AB /* Debug */,
+				3976104F28760FDD003EB1AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3976102C28760FDC003EB1AB /* Project object */;
+}
