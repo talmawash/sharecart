@@ -1,6 +1,3 @@
-Original App Design Project - README Template
-===
-
 # Sharecart
 
 ## Table of Contents
