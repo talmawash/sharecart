@@ -22,7 +22,7 @@
     PFUser *user = [PFUser currentUser];
     if (user != nil) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        // self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+         self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"NavigatonBarController"];
      }
 }
 

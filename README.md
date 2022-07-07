@@ -1,6 +1,3 @@
-Original App Design Project - README Template
-===
-
 # Sharecart
 
 ## Table of Contents
@@ -16,7 +13,7 @@ The app allows users to create a living grocery list and share it with a group o
 ### App Evaluation
 - **Category:** Lifestyle
 - **Mobile:** Push notifications sent when changes occur to lists, and to notify list members that a user is shopping, etc.
-- **Story:** The app can help users purchase the items they need no more or less than they need. It makes it easy for people who share a space to communicate what they need or not with their group memebers.
+- **Story:** The app can help users purchase the items they need no more or less than they need. It makes it easy for people who share a space to communicate what they need or not with their group members.
 - **Market:** Potential user base is large as a lot of people share living spaces and this app can easily make their experience of grocery shopping better. Countless social groups can benefit from this app.
 - **Habit:** People use shopping lists often and Sharecart is a better way to do them!
 - **Scope:** The app main functionality (a shared list system) can be implemented within the program period while leaving extra time for additional features such as push notifications.
@@ -27,9 +24,9 @@ The app allows users to create a living grocery list and share it with a group o
 
 **Required Must-have Stories**
 
-- [ ] User can register
-- [ ] User can login
-- [ ] Login persistence
+- [x] User can register
+- [x] User can login
+- [x] Login persistence
 - [ ] Logout function
 - [ ] User can create a grocery list
 - [ ] User can add items to a grocery list
@@ -50,7 +47,7 @@ The app allows users to create a living grocery list and share it with a group o
     - [ ] shopping status to all members
     - [ ] items edited, added, removed, etc. to members currently shopping (give option for users to choose whether they want notifications even if not shopping)
 - [ ] Priority specification with corresponding colors in cell
-    - [ ] high priority item edits are sent to all users forcibly
+    - [ ] high priority item edit notifications are sent to all users forcibly
 - [ ] Lists can be shared with a link
 - [ ] Items are ordered based on priority and date of last update
     - [ ] uncompleted\unpurchased items will be prioritized
