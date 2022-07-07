@@ -27,7 +27,7 @@ The app allows users to create a living grocery list and share it with a group o
 - [x] User can register
 - [x] User can login
 - [x] Login persistence
-- [ ] Logout function
+- [x] Logout function
 - [ ] User can create a grocery list
 - [ ] User can add items to a grocery list
     - [ ] Use an API and user input
