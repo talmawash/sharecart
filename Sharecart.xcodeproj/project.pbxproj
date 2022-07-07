@@ -74,6 +74,7 @@
 		3976103628760FDC003EB1AB /* Sharecart */ = {
 			isa = PBXGroup;
 			children = (
+				39E8504928775EF200BC04BA /* Models */,
 				39E8504328766E2D00BC04BA /* Views */,
 				39E85042287641AB00BC04BA /* ViewControllers */,
 				3976103728760FDC003EB1AB /* AppDelegate.h */,
@@ -105,6 +106,13 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		39E8504928775EF200BC04BA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		78E0A9A28CDB6481C5DF299A /* Frameworks */ = {

@@ -34,6 +34,20 @@
         }];
     }
 }
+- (IBAction)addListTap:(id)sender {
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: nil
+                                                                                     message: @"Create New List"
+                                                                                 preferredStyle:UIAlertControllerStyleAlert];
+       [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+           textField.placeholder = @"List Name";
+       }];
+       [alertController addAction:[UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+           UITextField * listNameField = alertController.textFields[0];
+           // TODO: Use listNameField above to create a new list
+           
+       }]];
+       [self presentViewController:alertController animated:YES completion:nil];
+}
 
 /*
 #pragma mark - Navigation
