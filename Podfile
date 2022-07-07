@@ -6,5 +6,6 @@ target 'Sharecart' do
   use_frameworks!
 
   # Pods for Sharecart
+  pod 'Parse'
 
 end
