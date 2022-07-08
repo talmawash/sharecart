@@ -79,6 +79,30 @@
                                 <rect key="frame" x="0.0" y="97" width="414" height="799"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="listCell" rowHeight="64" id="jxc-Qu-6ge" customClass="ListTableViewCell">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jxc-Qu-6ge" id="AaO-Ra-dej">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuF-tD-YLO">
+                                                    <rect key="frame" x="36" y="22" width="42" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vuF-tD-YLO" firstAttribute="top" secondItem="AaO-Ra-dej" secondAttribute="top" constant="22" id="2bu-3j-FC1"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vuF-tD-YLO" secondAttribute="trailing" constant="36" id="4nB-VP-MMj"/>
+                                                <constraint firstItem="vuF-tD-YLO" firstAttribute="leading" secondItem="AaO-Ra-dej" secondAttribute="leading" constant="36" id="OT6-zf-2nK"/>
+                                                <constraint firstAttribute="bottom" secondItem="vuF-tD-YLO" secondAttribute="bottom" constant="22" id="Wbr-2W-cHW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kUa-d9-iuU"/>
@@ -102,6 +126,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="kk4-wf-28J" id="AKt-3r-wJM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40H-LZ-Rqe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
