@@ -16,6 +16,8 @@
 		3976104A28760FDD003EB1AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3976104928760FDD003EB1AB /* main.m */; };
 		39E850452877555900BC04BA /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E850442877555900BC04BA /* Keys.plist */; };
 		39E85048287756E800BC04BA /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E85047287756E800BC04BA /* MainViewController.m */; };
+		39E8504D2878DD3F00BC04BA /* SharecartList.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8504C2878DD3F00BC04BA /* SharecartList.m */; };
+		39E850502878DDCF00BC04BA /* SharecartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8504F2878DDCF00BC04BA /* SharecartItem.m */; };
 		EB541CAE080DEC0EECA2F8D6 /* Pods_Sharecart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D798B63256236A4CA97E8C8F /* Pods_Sharecart.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,10 @@
 		39E850442877555900BC04BA /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		39E85046287756E800BC04BA /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		39E85047287756E800BC04BA /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		39E8504B2878DD3F00BC04BA /* SharecartList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharecartList.h; sourceTree = "<group>"; };
+		39E8504C2878DD3F00BC04BA /* SharecartList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharecartList.m; sourceTree = "<group>"; };
+		39E8504E2878DDCF00BC04BA /* SharecartItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharecartItem.h; sourceTree = "<group>"; };
+		39E8504F2878DDCF00BC04BA /* SharecartItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharecartItem.m; sourceTree = "<group>"; };
 		4FD09E466A961F8F5D83A143 /* Pods-Sharecart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharecart.debug.xcconfig"; path = "Target Support Files/Pods-Sharecart/Pods-Sharecart.debug.xcconfig"; sourceTree = "<group>"; };
 		D3B350C605E9BD3CC1CF7DE1 /* Pods-Sharecart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharecart.release.xcconfig"; path = "Target Support Files/Pods-Sharecart/Pods-Sharecart.release.xcconfig"; sourceTree = "<group>"; };
 		D798B63256236A4CA97E8C8F /* Pods_Sharecart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sharecart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +117,10 @@
 		39E8504928775EF200BC04BA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				39E8504B2878DD3F00BC04BA /* SharecartList.h */,
+				39E8504C2878DD3F00BC04BA /* SharecartList.m */,
+				39E8504E2878DDCF00BC04BA /* SharecartItem.h */,
+				39E8504F2878DDCF00BC04BA /* SharecartItem.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -250,6 +260,8 @@
 				3976103F28760FDC003EB1AB /* LoginViewController.m in Sources */,
 				3976103928760FDC003EB1AB /* AppDelegate.m in Sources */,
 				3976104A28760FDD003EB1AB /* main.m in Sources */,
+				39E850502878DDCF00BC04BA /* SharecartItem.m in Sources */,
+				39E8504D2878DD3F00BC04BA /* SharecartList.m in Sources */,
 				39E85048287756E800BC04BA /* MainViewController.m in Sources */,
 				3976103C28760FDC003EB1AB /* SceneDelegate.m in Sources */,
 			);

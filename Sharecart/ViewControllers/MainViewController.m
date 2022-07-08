@@ -8,6 +8,7 @@
 #import "MainViewController.h"
 #import "Parse/Parse.h"
 #import "SceneDelegate.h"
+#import "SharecartList.h"
 
 @interface MainViewController ()
 
@@ -43,8 +44,18 @@
        }];
        [alertController addAction:[UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
            UITextField * listNameField = alertController.textFields[0];
-           // TODO: Use listNameField above to create a new list
-           
+
+           SharecartList *newList = [SharecartList new];
+           newList.name = listNameField.text;
+           newList.creator = [PFUser currentUser];
+           [newList saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+               if (!error) {
+                   NSLog(@"Created \"%@\" successfully", newList.name);
+               }
+               else {
+                   NSLog(@"Error with list creation: %@", error);
+               }
+           }];
        }]];
        [self presentViewController:alertController animated:YES completion:nil];
 }
