@@ -7,6 +7,12 @@
 
 #import "ListTableViewCell.h"
 
+@interface ListTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet UILabel *lblListName;
+
+@end
+
 @implementation ListTableViewCell
 
 - (void)awakeFromNib {
@@ -18,6 +24,10 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)loadView {
+    self.lblListName.text = self.listName;
 }
 
 @end

@@ -9,8 +9,11 @@
 #import "Parse/Parse.h"
 #import "SceneDelegate.h"
 #import "SharecartList.h"
+#import "ListTableViewCell.h"
 
 @interface MainViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *lists;
 
 @end
 
@@ -18,13 +21,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.tableView.dataSource = self;
+    //TODO: Make this a LIVE query that detects when changes occur
+    PFQuery *query = [PFQuery queryWithClassName:@"SharecartList"];
+    [query includeKey:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if (!error) {
+            for (SharecartList *curr in objects) {
+                NSLog(@"loaded \"%@\" successfully", curr.name);
+            }
+            self.lists = objects;
+            [self.tableView reloadData];
+        }
+        else {
+            NSLog(@"Error with list fetching");
+        }
+    }];
 }
 
 - (IBAction)signoutTap:(id)sender {
     [PFUser logOut];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    SceneDelegate *sd = self.view.window.windowScene.delegate;
+    SceneDelegate *sd = (SceneDelegate*)self.view.window.windowScene.delegate;
     if ([sd.window.rootViewController isKindOfClass:[UINavigationController class]]) // Case 1: User was logged in when the app started, so we need a LoginViewController
     {
         sd.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
@@ -58,6 +77,17 @@
            }];
        }]];
        [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.lists.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"listCell"];
+    cell.listName = ((SharecartList*)self.lists[indexPath.row]).name;
+    [cell loadView];
+    return cell;
 }
 
 /*

@@ -101,6 +101,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="vuF-tD-YLO" secondAttribute="bottom" constant="22" id="Wbr-2W-cHW"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblListName" destination="vuF-tD-YLO" id="dEj-jj-uTz"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
