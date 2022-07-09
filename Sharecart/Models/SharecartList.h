@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) PFUser *creator;
 @property (nonatomic, strong) NSArray *users;
-@property (nonatomic, string) NSArray *items;
+@property (nonatomic, strong) NSArray *items;
 
 @end
 
