@@ -103,6 +103,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="lblListName" destination="vuF-tD-YLO" id="dEj-jj-uTz"/>
+                                            <segue destination="ZSC-qA-x9c" kind="show" id="vcN-Tg-7U8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -137,6 +138,29 @@
             </objects>
             <point key="canvasLocation" x="2234.7826086956525" y="97.767857142857139"/>
         </scene>
+        <!--List View Controller-->
+        <scene sceneID="4PB-4D-ai6">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="d82-RI-0ii" customClass="ListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VYW-7Y-UI0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="pj2-2h-yTO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nSd-LM-VeO">
+                        <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" id="58H-fw-hyv">
+                            <connections>
+                                <action selector="dismiss:" destination="d82-RI-0ii" id="Nmp-58-Djb"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="BMH-ky-rAT"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZBp-ZR-Qj3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4550.7246376811599" y="111.83035714285714"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="aIk-Fj-LPE">
             <objects>
@@ -156,8 +180,28 @@
             </objects>
             <point key="canvasLocation" x="1138" y="98"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZH2-aX-guI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="ZSC-qA-x9c" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="HAl-Q4-qBo"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uvs-Cb-FfU">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="d82-RI-0ii" kind="relationship" relationship="rootViewController" id="6DI-Y8-htr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E7x-kx-g9t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3640.579710144928" y="111.83035714285714"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

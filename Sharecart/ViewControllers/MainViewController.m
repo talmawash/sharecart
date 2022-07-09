@@ -10,6 +10,7 @@
 #import "SceneDelegate.h"
 #import "SharecartList.h"
 #import "ListTableViewCell.h"
+#import "ListViewController.h"
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -39,6 +40,8 @@
         }
     }];
 }
+
+#pragma mark - Taps
 
 - (IBAction)signoutTap:(id)sender {
     [PFUser logOut];
@@ -79,6 +82,8 @@
        [self presentViewController:alertController animated:YES completion:nil];
 }
 
+#pragma mark - Table View
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.lists.count;
 }
@@ -90,14 +95,19 @@
     return cell;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    UINavigationController *navigationController = [segue destinationViewController];
+
+    if ([navigationController.topViewController isKindOfClass:[ListViewController class]]) {
+        ListViewController *dvc = (ListViewController*)navigationController.topViewController;
+        dvc.list = self.lists[self.tableView.indexPathForSelectedRow.row];
+        [self.tableView select:nil];
+    }
 }
-*/
+
 
 @end
