@@ -70,6 +70,8 @@ The app allows users to create a living grocery list and share it with a group o
 - [ ] Custom tab bar in list to switch from\to items view to\from chat as well as add pop up
 - [ ] Customize notification settings per list
 - [ ] Come up with an easier way to invite users
+- [ ] Tap outside create new list controller to cancel
+- [ ] Add ProgressHUD to indicate activity
 
 ### 2. Screen Archetypes
 

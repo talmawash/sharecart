@@ -58,11 +58,11 @@
            newItem.list = self.list;
            [newItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                if (!error) {
-                   // TODO: Possibly update table view if it's not automatically being updated with a live query
-                   [self.list fetch];
-                   [self.list.items addObject:newItem];
-                   [self.list save];
-                   [self.list fetch];
+                   // TODO: Instead of making too many requests write cloud function that adds the item
+                   [self.list fetch]; // Ensure up to date item data
+                   [self.list.items addObject:newItem]; // Add locally
+                   [self.list save]; // Send update
+                   [self.list fetch]; // Fetch after adding to the databawse
                    [self loadItems];
                }
                else {
