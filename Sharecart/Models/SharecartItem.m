@@ -10,6 +10,7 @@
 @implementation SharecartItem
 
 @dynamic name;
+@dynamic list;
 
 + (NSString *)parseClassName {
     return @"SharecartItem";

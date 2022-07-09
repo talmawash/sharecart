@@ -20,6 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.dataSource = self;
+    [self loadItems];
+}
+
+- (void) loadItems {
     // TODO: live query to check for changes
     PFRelation *relationToItems = self.list.items;
     PFQuery *itemsQuery = [relationToItems query];
@@ -36,8 +40,37 @@
 
 #pragma mark - Taps
 
-- (IBAction)dismiss:(id)sender {
+- (IBAction)dismissTap:(id)sender {
     [self dismissViewControllerAnimated:TRUE completion:nil];
+}
+
+- (IBAction)addItemTap:(id)sender {
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: nil
+                                                                                     message: @"Add New Item"
+                                                                                 preferredStyle:UIAlertControllerStyleAlert];
+       [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+           textField.placeholder = @"Item Name";
+       }];
+       [alertController addAction:[UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+           SharecartItem *newItem = [SharecartItem new];
+           newItem.name = alertController.textFields[0].text;
+           newItem.list = self.list;
+           [newItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+               if (!error) {
+                   // TODO: Possibly update table view if it's not automatically being updated with a live query
+                   [self.list fetch];
+                   [self.list.items addObject:newItem];
+                   [self.list save];
+                   [self.list fetch];
+                   [self loadItems];
+               }
+               else {
+                   // TODO: Prompt user to check connection and try again
+               }
+           }];
+       }]];
+       [self presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - Table View

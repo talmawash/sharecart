@@ -31,8 +31,8 @@ The app allows users to create a living grocery list and share it with a group o
 - [x] User can create a grocery list
 - [x] User can see list of lists he joined\created
 - [x] User can see list of items in a list
-- [ ] User can add items to a grocery list
-    - [ ] Use an API and user input
+- [x] User can add items to a grocery list
+    - [ ] Use an API to look up items
 - [ ] User can share a grocery list with other users
     - [ ] list number and passcode
 - [ ] User can mark items as purchased
