@@ -105,7 +105,7 @@
     if ([navigationController.topViewController isKindOfClass:[ListViewController class]]) {
         ListViewController *dvc = (ListViewController*)navigationController.topViewController;
         dvc.list = self.lists[self.tableView.indexPathForSelectedRow.row];
-        [self.tableView select:nil];
+        [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:TRUE];
     }
 }
 
