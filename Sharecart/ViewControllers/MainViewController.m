@@ -29,14 +29,11 @@
     [query includeKey:@"name"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (!error) {
-            for (SharecartList *curr in objects) {
-                NSLog(@"loaded \"%@\" successfully", curr.name);
-            }
             self.lists = objects;
             [self.tableView reloadData];
         }
         else {
-            NSLog(@"Error with list fetching");
+            // TODO: Prompt user to check connection and try again
         }
     }];
 }
@@ -72,10 +69,10 @@
            newList.creator = [PFUser currentUser];
            [newList saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                if (!error) {
-                   NSLog(@"Created \"%@\" successfully", newList.name);
+                   // TODO: Possibly update table view if it's not automatically being updated with a live query
                }
                else {
-                   NSLog(@"Error with list creation: %@", error);
+                   // TODO: Prompt user to check connection and try again
                }
            }];
        }]];

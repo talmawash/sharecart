@@ -6,8 +6,12 @@
 //
 
 #import "ListViewController.h"
+#import "SharecartItem.h"
 
 @interface ListViewController ()
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *items;
 
 @end
 
@@ -15,12 +19,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.tableView.dataSource = self;
+    // TODO: live query to check for changes
+    PFRelation *relationToItems = self.list.items;
+    PFQuery *itemsQuery = [relationToItems query];
+    [itemsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if (!error) {
+            self.items = objects;
+            [self.tableView reloadData];
+        }
+        else {
+            // TODO: Prompt user to check connection and try again
+        }
+    }];
 }
+
+#pragma mark - Taps
 
 - (IBAction)dismiss:(id)sender {
     [self dismissViewControllerAnimated:TRUE completion:nil];
 }
+
+#pragma mark - Table View
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.items.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"itemCell"];
+    cell.textLabel.text = ((SharecartItem*)self.items[indexPath.row]).name;
+    return cell;
+}
+
 
 /*
 #pragma mark - Navigation
