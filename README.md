@@ -21,7 +21,9 @@ The app allows users to create a living grocery list and share it with a group o
 ## Technically Ambiguous Challenges
 
 * Shared read/write access to grocery list
+    * Permissions to read\write will depend on whether a user is part of a list. Implementing this is not as straightforward as setting a user role (e.g. administrator) as the read\write permissions apply to specific lists\items. Further, users could edit the same item simultaneously and have conflicting changes that need to be addressed.
 * Live notifications of changes to the grocery list
+    * Up to date information of the list and its items is an essential feature of the app. Any changes that to the list by other users need to be communicated in real time. The app will not implement push notifications which requires considering other ways to relay updates to users in a clear manner.
 
 ## Product Spec
 
