@@ -18,6 +18,11 @@ The app allows users to create a living grocery list and share it with a group o
 - **Habit:** People use shopping lists often and Sharecart is a better way to do them!
 - **Scope:** The app main functionality (a shared list system) can be implemented within the program period while leaving extra time for additional features such as push notifications.
 
+## Technically Ambiguous Challenges
+
+* Shared read/write access to grocery list
+* Live notifications of changes to the grocery list
+
 ## Product Spec
 
 ### 1. User Stories (Required and Optional)
