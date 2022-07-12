@@ -12,18 +12,18 @@ The app allows users to create a living grocery list and share it with a group o
 
 ### App Evaluation
 - **Category:** Lifestyle
-- **Mobile:** Push notifications sent when changes occur to lists, and to notify list members that a user is shopping, etc.
+- **Mobile:** Notifications sent when changes occur to lists, and to notify list members that a user is shopping, etc.
 - **Story:** The app can help users purchase the items they need no more or less than they need. It makes it easy for people who share a space to communicate what they need or not with their group members.
 - **Market:** Potential user base is large as a lot of people share living spaces and this app can easily make their experience of grocery shopping better. Countless social groups can benefit from this app.
 - **Habit:** People use shopping lists often and Sharecart is a better way to do them!
-- **Scope:** The app main functionality (a shared list system) can be implemented within the program period while leaving extra time for additional features such as push notifications.
+- **Scope:** The app main functionality (a shared list system) can be implemented within the program period while leaving extra time for additional features such as notifications.
 
 ## Technically Ambiguous Challenges
 
 * Shared read/write access to grocery list
     * Permissions to read\write will depend on whether a user is part of a list. Implementing this is not as straightforward as setting a user role (e.g. administrator) as the read\write permissions apply to specific lists\items. Further, users could edit the same item simultaneously and have conflicting changes that need to be addressed.
 * Live notifications of changes to the grocery list
-    * Up to date information of the list and its items is an essential feature of the app. Any changes that to the list by other users need to be communicated in real time. The app will not implement push notifications which requires considering other ways to relay updates to users in a clear manner.
+    * Up to date information of the list and its items is an essential feature of the app. Any changes to the list by other users need to be communicated in real time. The app will not implement push notifications which requires considering other ways to relay updates to users in a clear manner.
 
 ## Product Spec
 
@@ -53,7 +53,7 @@ The app allows users to create a living grocery list and share it with a group o
 - [ ] User can indicate that they started\stopped shopping
     - [ ] the list view should show who's currently shopping
 - [ ] Automatically stop shopping after X minutes
-- [ ] Push notification when changes occur
+- [ ] Notification when changes occur
     - [ ] shopping status to all members
     - [ ] items edited, added, removed, etc. to members currently shopping (give option for users to choose whether they want notifications even if not shopping)
 - [ ] Priority specification with corresponding colors in cell
