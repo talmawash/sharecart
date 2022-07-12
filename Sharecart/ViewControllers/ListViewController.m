@@ -25,9 +25,9 @@
 
 - (void) loadItems {
     // TODO: live query to check for changes
-    PFRelation *relationToItems = self.list.items;
-    PFQuery *itemsQuery = [relationToItems query];
-    [itemsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    PFQuery *query = [PFQuery queryWithClassName:@"SharecartItem"];
+    [query whereKey:@"list" equalTo:self.list];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (!error) {
             self.items = objects;
             [self.tableView reloadData];
@@ -58,11 +58,6 @@
            newItem.list = self.list;
            [newItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                if (!error) {
-                   // TODO: Instead of making too many requests write cloud function that adds the item
-                   [self.list fetch]; // Ensure up to date item data
-                   [self.list.items addObject:newItem]; // Add locally
-                   [self.list save]; // Send update
-                   [self.list fetch]; // Fetch after adding to the databawse
                    [self loadItems];
                }
                else {
