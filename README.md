@@ -12,7 +12,7 @@ The app allows users to create a living grocery list and share it with a group o
 
 ### App Evaluation
 - **Category:** Lifestyle
-- **Mobile:** Notifications sent when changes occur to lists, and to notify list members that a user is shopping, etc.
+- **Mobile:** Notifications sent when changes occur to lists and to notify list members that a user is shopping, etc.
 - **Story:** The app can help users purchase the items they need no more or less than they need. It makes it easy for people who share a space to communicate what they need or not with their group members.
 - **Market:** Potential user base is large as a lot of people share living spaces and this app can easily make their experience of grocery shopping better. Countless social groups can benefit from this app.
 - **Habit:** People use shopping lists often and Sharecart is a better way to do them!
