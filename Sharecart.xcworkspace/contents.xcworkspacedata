@@ -19,6 +19,9 @@
       <FileRef
          location = "group:Backend/main.js">
       </FileRef>
+      <FileRef
+         location = "group:/Users/talm/Desktop/xcode/Sharecart/Backend/auth.js">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:Sharecart.xcodeproj">
