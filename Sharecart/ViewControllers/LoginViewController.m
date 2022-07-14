@@ -26,10 +26,10 @@
     NSString *password = self.txtPassword.text;
     
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
-        if (error != nil) {
-            // TODO: Handle sign in error
-        } else {
+        if (error == nil) {
             [self performSegueWithIdentifier:@"firstSegue" sender:nil];
+        } else {
+            // TODO: Handle sign in error
         }
     }];
 }
@@ -42,10 +42,10 @@
     
     // Parse requires public database write permissions to sign up users but not for signing in, which Parse *probably* manages well
     [PFCloud callFunctionInBackground:@"signup" withParameters:@{@"username": newUser.username, @"password": newUser.password} block:^(id  _Nullable object, NSError * _Nullable error) {
-        if (error != nil) {
-            // TODO: Handle sign out error
-        } else {
+        if (error == nil) {
             [self loginUser:sender]; // Calling the sign in function to generate a session token
+        } else {
+            // TODO: Handle sign out error
         }
     }];
 }
