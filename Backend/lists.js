@@ -11,7 +11,11 @@ Parse.Cloud.define("getLists", async (request) => {
       mainQuery = Parse.Query.or(mainQuery, subQuery);
     }
   }
-  return await mainQuery.find({ useMasterKey: true });
+  if (mainQuery) {
+    return await mainQuery.find({ useMasterKey: true });
+  } else {
+    return { };
+  }
 },{
   requireUser: true
 });
