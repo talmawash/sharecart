@@ -8,6 +8,9 @@
       location = "group:Keys.plist">
    </FileRef>
    <FileRef
+      location = "group:/Users/talm/Desktop/xcode/Sharecart/backend.js">
+   </FileRef>
+   <FileRef
       location = "group:Sharecart.xcodeproj">
    </FileRef>
    <FileRef
