@@ -7,9 +7,19 @@
    <FileRef
       location = "group:Keys.plist">
    </FileRef>
-   <FileRef
-      location = "group:/Users/talm/Desktop/xcode/Sharecart/backend.js">
-   </FileRef>
+   <Group
+      location = "container:"
+      name = "Backend">
+      <FileRef
+         location = "group:Backend/items.js">
+      </FileRef>
+      <FileRef
+         location = "group:Backend/lists.js">
+      </FileRef>
+      <FileRef
+         location = "group:Backend/main.js">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Sharecart.xcodeproj">
    </FileRef>
