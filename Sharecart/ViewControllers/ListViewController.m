@@ -25,9 +25,7 @@
 
 - (void) loadItems {
     // TODO: live query to check for changes
-    PFQuery *query = [PFQuery queryWithClassName:@"SharecartItem"];
-    [query whereKey:@"list" equalTo:self.list];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    [PFCloud callFunctionInBackground:@"getItems" withParameters:@{@"listId": self.list.objectId} block:^(id  _Nullable objects, NSError * _Nullable error) {
         if (!error) {
             self.items = objects;
             [self.tableView reloadData];
