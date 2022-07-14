@@ -31,6 +31,7 @@ The app allows users to create a living grocery list and share it with a group o
 
 **Required Must-have Stories**
 
+- [X] Secure indirect access to database through Parse cloud code 
 - [x] User can register
 - [x] User can login
 - [x] Login persistence
