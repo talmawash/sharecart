@@ -25,9 +25,7 @@
     
     self.tableView.dataSource = self;
     //TODO: Make this a LIVE query that detects when changes occur
-    PFQuery *query = [PFQuery queryWithClassName:@"SharecartList"];
-    [query includeKey:@"name"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    [PFCloud callFunctionInBackground:@"getLists" withParameters:@{} block:^(id  _Nullable objects, NSError * _Nullable error) {
         if (!error) {
             self.lists = objects;
             [self.tableView reloadData];
