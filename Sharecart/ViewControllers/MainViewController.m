@@ -14,7 +14,7 @@
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *lists;
+@property (strong, nonatomic) NSMutableArray *lists;
 
 @end
 
@@ -62,12 +62,10 @@
        [alertController addAction:[UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
            UITextField * listNameField = alertController.textFields[0];
 
-           SharecartList *newList = [SharecartList new];
-           newList.name = listNameField.text;
-           newList.creator = [PFUser currentUser];
-           [newList saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+           [PFCloud callFunctionInBackground:@"newList" withParameters:@{@"name": listNameField.text} block:^(id  _Nullable object, NSError * _Nullable error) {
                if (!error) {
-                   // TODO: Possibly update table view if it's not automatically being updated with a live query
+                   [self.lists addObject:object];
+                   [self.tableView reloadData];
                }
                else {
                    // TODO: Prompt user to check connection and try again
