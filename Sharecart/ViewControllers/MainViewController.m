@@ -64,7 +64,7 @@
 
            [PFCloud callFunctionInBackground:@"newList" withParameters:@{@"name": listNameField.text} block:^(id  _Nullable object, NSError * _Nullable error) {
                if (!error) {
-                   [self.lists addObject:object];
+                   [self.lists insertObject:object atIndex:0];
                    [self.tableView reloadData];
                }
                else {
