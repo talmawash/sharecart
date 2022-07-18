@@ -12,11 +12,13 @@ Parse.Cloud.define("newList", async (request) => {
     name: request.params.name,
     creator: request.user
   }, { useMasterKey: true });
+  list.relation("users").add(request.user);
+  await list.save(null, { useMasterKey: true});
   
   request.user.get("lists").add(list);
   await request.user.save(null, { useMasterKey:true });
   
-  return list; // This will be reached if the above operations don't throw exceptions.
+  return list;
 },{
   fields: ["name"],
   requireUser: true
