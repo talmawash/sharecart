@@ -21,7 +21,7 @@
 
         configuration.applicationId = [dict objectForKey: @"app_id"];;
         configuration.clientKey = [dict objectForKey: @"client_key"];
-        configuration.server = @"https://parseapi.back4app.com";
+        configuration.server = @"https://sharecart.b4a.io";
     }];
 
     [Parse initializeWithConfiguration:config];

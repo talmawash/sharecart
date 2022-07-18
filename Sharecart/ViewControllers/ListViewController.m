@@ -53,7 +53,7 @@
 
            [PFCloud callFunctionInBackground:@"newItem" withParameters:@{@"name": alertController.textFields[0].text, @"listId": self.list.objectId} block:^(id  _Nullable object, NSError * _Nullable error) {
                if (!error) {
-                   [self.items addObject:object];
+                   [self.items insertObject:object atIndex:0];
                    [self.tableView reloadData];
                }
                else {

@@ -11,10 +11,15 @@
 #import "SharecartList.h"
 #import "ListTableViewCell.h"
 #import "ListViewController.h"
+#import "SharecartUpdate.h"
+#import "ParseLiveQuery/ParseLiveQuery-umbrella.h"
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *lists;
+@property (strong, nonatomic) PFLiveQueryClient *liveQueryClient;
+@property (strong, nonatomic) PFLiveQuerySubscription *liveQuerySubscription;
+@property (strong, nonatomic) PFQuery *liveQuery;
 
 @end
 
@@ -24,7 +29,22 @@
     [super viewDidLoad];
     
     self.tableView.dataSource = self;
-    //TODO: Make this a LIVE query that detects when changes occur
+
+    self.liveQueryClient = [[PFLiveQueryClient alloc] init];
+    self.liveQuery = [SharecartUpdate query]; // TODO: Only load new updates (keep track of last loaded)
+
+
+    [self.liveQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        for (SharecartUpdate *curr in objects) {
+            NSLog(@"Had an update of type %@\nChanged from %@\n\nto\n\n%@", curr.type, curr.before, curr.after);
+        }
+    }];
+
+    self.liveQuerySubscription = [[self.liveQueryClient subscribeToQuery:self.liveQuery] addCreateHandler:^(PFQuery<PFObject *> * _Nonnull query, PFObject * _Nonnull object) {
+        SharecartUpdate *curr = (SharecartUpdate*)object;
+        NSLog(@"Had an update of type %@\nChanged from %@\n\nto\n\n%@", curr.type, curr.before, curr.after);
+    }];
+    
     [PFCloud callFunctionInBackground:@"getLists" withParameters:@{} block:^(id  _Nullable objects, NSError * _Nullable error) {
         if (!error) {
             self.lists = objects;
@@ -48,7 +68,7 @@
     }
     else { // Case 2: A LoginViewController already exists, so dismiss this view to get to it.
         [self dismissViewControllerAnimated:YES completion:^{
-            // TODO: Post sign out UI clean up?
+            // TODO: Post sign out UI clean up? Close live query client
         }];
     }
 }
@@ -64,7 +84,7 @@
 
            [PFCloud callFunctionInBackground:@"newList" withParameters:@{@"name": listNameField.text} block:^(id  _Nullable object, NSError * _Nullable error) {
                if (!error) {
-                   [self.lists addObject:object];
+                   [self.lists insertObject:object atIndex:0];
                    [self.tableView reloadData];
                }
                else {

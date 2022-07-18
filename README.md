@@ -2,9 +2,9 @@
 
 ## Table of Contents
 1. [Overview](#Overview)
-1. [Product Spec](#Product-Spec)
-1. [Wireframes](#Wireframes)
-2. [Schema](#Schema)
+2. [Technically Amibguous Challenges](#Technically-Ambiguous-Challenges)
+3. [Product Spec](#Product-Spec)
+4. [Parse Cloud Code](#Parse-Cloud-Code)
 
 ## Overview
 ### Description
@@ -47,7 +47,7 @@ The app allows users to create a living grocery list and share it with a group o
 - [ ] User can see general information about the list
     - [ ] short summary in main screen
 - [ ] User can leave a list
-
+- [ ] Changes by other users are sent to the user as they occur
 
 **Optional Nice-to-have Stories**
 
@@ -117,18 +117,14 @@ The app allows users to create a living grocery list and share it with a group o
 * List Screen -> List Information Screen
 * List Screen -> Chat Screen
 
-## Wireframes
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+## Parse Cloud Code
+The backend of the app is powered by Parse's cloud code which is stored in the server side. 
 
-### [BONUS] Digital Wireframes & Mockups
+![Sharecart](https://user-images.githubusercontent.com/63553192/179326718-2bb02287-a96b-4d4a-93b6-8552aedb2237.png)
 
-### [BONUS] Interactive Prototype
 
-## Schema 
-[This section will be completed in Unit 9]
-### Models
-[Add table of models]
-### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+### Permissions
+Although Parse has built-in permission checks, they are not enough to ensure the app is working as intended. For example, for a list member to add another user to a list, they would need write permissions to list row in the database. This allows them to easily tamper the data. Most worrying, however, the list can break if changes were to be made before syncing with the server. For example, a new member of a list could be removed because the local version of the list is not updated to include that new member yet. To prevent incorrect or unauthorized access to the database, the cloud code can serve as a gate keeper.
+
+### Change Logging
+Cloud code is also useful in logging updates or changes concering a user, e.g. a list's name has been changed. These updates can then be be saved in a separate table and loaded when the app launches. As the apps runs, a websocket that is facilitated through Parse Live Query receives updates right after they occur. It does depend on a query that requires Parse permissions but is still secure as it only needs read permissions and goes through Parse's own authentication checks.
