@@ -15,6 +15,7 @@
 		3976104728760FDC003EB1AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3976104528760FDC003EB1AB /* LaunchScreen.storyboard */; };
 		3976104A28760FDD003EB1AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3976104928760FDD003EB1AB /* main.m */; };
 		39976A242881ED9900548CC0 /* SharecartUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39976A232881ED9900548CC0 /* SharecartUpdate.m */; };
+		39976A272886242D00548CC0 /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39976A262886242D00548CC0 /* ItemTableViewCell.m */; };
 		39E850452877555900BC04BA /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E850442877555900BC04BA /* Keys.plist */; };
 		39E85048287756E800BC04BA /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E85047287756E800BC04BA /* MainViewController.m */; };
 		39E8504D2878DD3F00BC04BA /* SharecartList.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8504C2878DD3F00BC04BA /* SharecartList.m */; };
@@ -39,6 +40,8 @@
 		3976104928760FDD003EB1AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		39976A222881ED9900548CC0 /* SharecartUpdate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharecartUpdate.h; sourceTree = "<group>"; };
 		39976A232881ED9900548CC0 /* SharecartUpdate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharecartUpdate.m; sourceTree = "<group>"; };
+		39976A252886242D00548CC0 /* ItemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemTableViewCell.h; sourceTree = "<group>"; };
+		39976A262886242D00548CC0 /* ItemTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
 		39E850442877555900BC04BA /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		39E85046287756E800BC04BA /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		39E85047287756E800BC04BA /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -123,6 +126,8 @@
 			children = (
 				39E850512878EBA200BC04BA /* ListTableViewCell.h */,
 				39E850522878EBA200BC04BA /* ListTableViewCell.m */,
+				39976A252886242D00548CC0 /* ItemTableViewCell.h */,
+				39976A262886242D00548CC0 /* ItemTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				39E850562878F9E700BC04BA /* ListViewController.m in Sources */,
 				3976104A28760FDD003EB1AB /* main.m in Sources */,
 				39E850502878DDCF00BC04BA /* SharecartItem.m in Sources */,
+				39976A272886242D00548CC0 /* ItemTableViewCell.m in Sources */,
 				39E8504D2878DD3F00BC04BA /* SharecartList.m in Sources */,
 				39E850532878EBA200BC04BA /* ListTableViewCell.m in Sources */,
 				39E85048287756E800BC04BA /* MainViewController.m in Sources */,
