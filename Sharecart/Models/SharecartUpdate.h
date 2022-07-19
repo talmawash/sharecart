@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) PFObject *before;
 @property (nonatomic, strong) PFObject *after;
-@property (nonatomic) NSInteger number; // This number is unique to its context, e.g. each list will have update no. 2 regarding it or its time and each user will have update no. 2 regarding his own data.
+@property (nonatomic) long number; // This number is unique to its context, e.g. each list will have update no. 2 regarding it or its time and each user will have update no. 2 regarding his own data.
 
 @end
 
