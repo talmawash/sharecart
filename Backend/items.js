@@ -22,11 +22,11 @@ Parse.Cloud.define("newItem", async (request) => {
     
     const users = await list[0].relation("users").query().find({ useMasterKey:true }) // Lookup all users in list
     list[0].increment("lastUpdate").save(null, { useMasterKey: true }); // Increment and save lastUpdate value of the list
-    for (let i = 0; i < users.length; i++) {
+    for (currUser of users) {
       await new Parse.Object("SharecartUpdate").save({ // save an update object for list user i
         type: "itemAdded",
         after: item.toJSON(),
-        accessibleBy: users[i],
+        accessibleBy: currUser,
         number: list[0].get("lastUpdate")
       }, { useMasterKey: true });
     }
