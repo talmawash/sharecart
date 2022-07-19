@@ -12,10 +12,12 @@
 #import "ListTableViewCell.h"
 #import "ListViewController.h"
 #import "SharecartUpdate.h"
+#import "SharecartItem.h"
 #import "ParseLiveQuery/ParseLiveQuery-umbrella.h"
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet ListViewController *selectedView;
 @property (strong, nonatomic) NSMutableArray *lists;
 @property (strong, nonatomic) PFLiveQueryClient *liveQueryClient;
 @property (strong, nonatomic) PFLiveQuerySubscription *liveQuerySubscription;
@@ -41,8 +43,11 @@
     }];
 
     self.liveQuerySubscription = [[self.liveQueryClient subscribeToQuery:self.liveQuery] addCreateHandler:^(PFQuery<PFObject *> * _Nonnull query, PFObject * _Nonnull object) {
-        SharecartUpdate *curr = (SharecartUpdate*)object;
-        NSLog(@"Had an update of type %@\nChanged from %@\n\nto\n\n%@", curr.type, curr.before, curr.after);
+        SharecartUpdate *update = (SharecartUpdate*)object;
+        NSLog(@"Had an update of type %@\nChanged from %@\n\nto\n\n%@", update.type, update.before, update.after);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self handleNewUpdate: update];
+        });
     }];
     
     [PFCloud callFunctionInBackground:@"getLists" withParameters:@{} block:^(id  _Nullable objects, NSError * _Nullable error) {
@@ -54,6 +59,21 @@
             // TODO: Prompt user to check connection and try again
         }
     }];
+}
+
+- (void) handleNewUpdate:(SharecartUpdate *)update {
+    if ([update.type isEqualToString:@"itemAdded"]) {
+        if (self.selectedView && self.selectedView.parentViewController /* sometimes the view is not set to null after being dimissed, but parentViewController will be null if the view was dimissed and not garbage collected */) {
+            SharecartItem* item = [[SharecartItem alloc] init];
+            item.objectId = update.after[@"objectId"];
+            item.list = update.after[@"list"];
+            item.name = update.after[@"name"];
+            
+            if ([self.selectedView.list.objectId isEqualToString:item.list.objectId]) {
+                [self.selectedView itemAddUpdate: item];
+            }
+        }
+    }
 }
 
 #pragma mark - Taps
@@ -113,10 +133,11 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UINavigationController *navigationController = [segue destinationViewController];
+    UIViewController *nextController = [segue destinationViewController];
 
-    if ([navigationController.topViewController isKindOfClass:[ListViewController class]]) {
-        ListViewController *dvc = (ListViewController*)navigationController.topViewController;
+    if ([nextController isKindOfClass:[ListViewController class]]) {
+        ListViewController *dvc = (ListViewController*)nextController;
+        self.selectedView = dvc;
         dvc.list = self.lists[self.tableView.indexPathForSelectedRow.row];
         [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:TRUE];
     }

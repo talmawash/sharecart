@@ -8,5 +8,6 @@ target 'Sharecart' do
   # Pods for Sharecart
   pod 'Parse'
   pod 'ParseLiveQuery'
-  
+  pod 'ProgressHUD'
+
 end
