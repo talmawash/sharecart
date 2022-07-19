@@ -11,7 +11,7 @@
 @interface ListViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *items;
+@property (strong, nonatomic) NSMutableArray *items;
 
 @end
 
@@ -25,9 +25,7 @@
 
 - (void) loadItems {
     // TODO: live query to check for changes
-    PFQuery *query = [PFQuery queryWithClassName:@"SharecartItem"];
-    [query whereKey:@"list" equalTo:self.list];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    [PFCloud callFunctionInBackground:@"getItems" withParameters:@{@"listId": self.list.objectId} block:^(id  _Nullable objects, NSError * _Nullable error) {
         if (!error) {
             self.items = objects;
             [self.tableView reloadData];
@@ -53,12 +51,10 @@
        }];
        [alertController addAction:[UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
 
-           SharecartItem *newItem = [SharecartItem new];
-           newItem.name = alertController.textFields[0].text;
-           newItem.list = self.list;
-           [newItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+           [PFCloud callFunctionInBackground:@"newItem" withParameters:@{@"name": alertController.textFields[0].text, @"listId": self.list.objectId} block:^(id  _Nullable object, NSError * _Nullable error) {
                if (!error) {
-                   [self loadItems];
+                   [self.items insertObject:object atIndex:0];
+                   [self.tableView reloadData];
                }
                else {
                    // TODO: Prompt user to check connection and try again
