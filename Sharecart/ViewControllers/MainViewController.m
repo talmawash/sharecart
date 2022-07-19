@@ -52,7 +52,7 @@
     
     self.liveQueryClient = [[PFLiveQueryClient alloc] init];
     self.liveQuery = [SharecartUpdate query]; // TODO: Only load new updates (keep track of last loaded)
-
+    [self.liveQuery orderByAscending:@"createdAt"];
 
     [self.liveQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (SharecartUpdate *curr in objects) {
