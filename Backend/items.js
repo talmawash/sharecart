@@ -2,7 +2,7 @@ Parse.Cloud.define("getItems", async (request) => {
   const relation = await request.user.get("lists");
   const list = await relation.query().equalTo("objectId", request.params.listId).find({ useMasterKey: true });
   if (list.length == 1) { // User is indeed a member of that list
-    const query = new Parse.Query("SharecartItem").equalTo("list", list[0]);
+    const query = new Parse.Query("SharecartItem").equalTo("list", list[0]).descending("createdAt");
     return await query.find({ useMasterKey: true });
   }
 },{

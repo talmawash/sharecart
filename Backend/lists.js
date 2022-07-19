@@ -1,7 +1,7 @@
 Parse.Cloud.define("getLists", async (request) => {
   let mainQuery;
   const relation = await request.user.get("lists");
-  return await relation.query().find({ useMasterKey: true });
+  return await relation.query().descending("createdAt").find({ useMasterKey: true });
 },{
   requireUser: true
 });
