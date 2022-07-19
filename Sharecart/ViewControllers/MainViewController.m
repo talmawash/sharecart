@@ -57,6 +57,7 @@
     [self.liveQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (SharecartUpdate *curr in objects) {
             NSLog(@"Had an update of type %@\nChanged from %@\n\nto\n\n%@", curr.type, curr.before, curr.after);
+            [self handleMissedUpdate:curr];
         }
     }];
 
@@ -68,15 +69,23 @@
         });
     }];
     
-    [PFCloud callFunctionInBackground:@"getLists" withParameters:@{} block:^(id  _Nullable objects, NSError * _Nullable error) {
-        if (!error) {
-            self.lists = objects;
-            [self.tableView reloadData];
+
+}
+
+- (void) handleMissedUpdate:(SharecartUpdate *)update {
+    if ([update.type isEqualToString:@"itemAdded"]) {
+        SharecartItem* updatedItem = [[SharecartItem alloc] init];
+        updatedItem.objectId = update.after[@"objectId"];
+        updatedItem.list = update.after[@"list"];
+        updatedItem.name = update.after[@"name"];
+        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+        NSString *key = [@"lastUpdate_" stringByAppendingString:updatedItem.list.objectId];
+        NSInteger lastUpdate = [prefs integerForKey:key];
+        if (lastUpdate < update.number) {
+            NSLog(@"Item %@ was added to the list %@ while you were off the app\n", updatedItem.name, updatedItem.list.objectId);
+            [prefs setInteger:update.number forKey:key];
         }
-        else {
-            // TODO: Prompt user to check connection and try again
-        }
-    }];
+    }
 }
 
 - (void) handleNewUpdate:(SharecartUpdate *)update {
