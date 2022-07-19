@@ -11,6 +11,7 @@
 
 @dynamic name;
 @dynamic creator;
+@dynamic lastUpdate;
 
 + (NSString *)parseClassName {
     return @"SharecartList";

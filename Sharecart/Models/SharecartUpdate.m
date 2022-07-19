@@ -12,6 +12,7 @@
 @dynamic type;
 @dynamic before;
 @dynamic after;
+@dynamic number;
 
 + (NSString *)parseClassName {
     return @"SharecartUpdate";
