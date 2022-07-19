@@ -16,6 +16,7 @@
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet ListViewController *selectedView;
 @property (strong, nonatomic) NSMutableArray *lists;
 @property (strong, nonatomic) PFLiveQueryClient *liveQueryClient;
 @property (strong, nonatomic) PFLiveQuerySubscription *liveQuerySubscription;
@@ -113,10 +114,11 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UINavigationController *navigationController = [segue destinationViewController];
+    UIViewController *nextController = [segue destinationViewController];
 
-    if ([navigationController.topViewController isKindOfClass:[ListViewController class]]) {
-        ListViewController *dvc = (ListViewController*)navigationController.topViewController;
+    if ([nextController isKindOfClass:[ListViewController class]]) {
+        ListViewController *dvc = (ListViewController*)nextController;
+        self.selectedView = dvc;
         dvc.list = self.lists[self.tableView.indexPathForSelectedRow.row];
         [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:TRUE];
     }

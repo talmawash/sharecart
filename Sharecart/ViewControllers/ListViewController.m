@@ -39,7 +39,7 @@
 #pragma mark - Taps
 
 - (IBAction)dismissTap:(id)sender {
-    [self dismissViewControllerAnimated:TRUE completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)addItemTap:(id)sender {
