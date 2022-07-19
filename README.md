@@ -47,7 +47,8 @@ The app allows users to create a living grocery list and share it with a group o
 - [ ] User can see general information about the list
     - [ ] short summary in main screen
 - [ ] User can leave a list
-- [ ] Changes by other users are sent to the user as they occur
+- [x] Changes by other users are sent to the user as they occur
+- [ ] Shows changes that occurred while the app is not on
 
 **Optional Nice-to-have Stories**
 
