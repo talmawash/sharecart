@@ -31,10 +31,18 @@
     [super viewDidLoad];
     
     self.tableView.dataSource = self;
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     // Should we cache?
     [PFCloud callFunctionInBackground:@"getLists" withParameters:@{} block:^(id  _Nullable objects, NSError * _Nullable error) {
         if (!error) {
             self.lists = objects;
+            for (SharecartList *curr in objects) {
+                NSString *key = [@"lastUpdate_" stringByAppendingString:curr.objectId];
+                NSInteger lastUpdate = [prefs integerForKey:key];
+                if (lastUpdate == 0) { // Not present in settings
+                    [prefs setInteger:curr.lastUpdate forKey:key];
+                }
+            }
             [self.tableView reloadData];
         }
         else {
