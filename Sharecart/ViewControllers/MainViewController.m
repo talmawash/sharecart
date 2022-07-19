@@ -44,12 +44,15 @@
                 }
             }
             [self.tableView reloadData];
+            [self setupLiveQuery];
         }
         else {
             // TODO: Prompt user to check connection and try again
         }
     }];
-    
+}
+
+- (void)setupLiveQuery {
     self.liveQueryClient = [[PFLiveQueryClient alloc] init];
     self.liveQuery = [SharecartUpdate query]; // TODO: Only load new updates (keep track of last loaded)
     [self.liveQuery orderByAscending:@"createdAt"];
@@ -68,8 +71,6 @@
             [self handleNewUpdate: update];
         });
     }];
-    
-
 }
 
 - (void) handleMissedUpdate:(SharecartUpdate *)update {
