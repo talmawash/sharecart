@@ -6,7 +6,6 @@
 //
 
 #import "ListViewController.h"
-#import "SharecartItem.h"
 
 @interface ListViewController ()
 
@@ -23,8 +22,17 @@
     [self loadItems];
 }
 
+- (void)itemAddUpdate:(SharecartItem *) item {
+    for (SharecartItem *curr in self.items) {
+        if ([curr.objectId isEqualToString:item.objectId]) {
+            return;
+        }
+    }
+    [self.items insertObject:item atIndex:0];
+    [self.tableView reloadData];
+}
+
 - (void) loadItems {
-    // TODO: live query to check for changes
     [PFCloud callFunctionInBackground:@"getItems" withParameters:@{@"listId": self.list.objectId} block:^(id  _Nullable objects, NSError * _Nullable error) {
         if (!error) {
             self.items = objects;
