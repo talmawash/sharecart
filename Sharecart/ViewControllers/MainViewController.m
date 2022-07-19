@@ -31,7 +31,17 @@
     [super viewDidLoad];
     
     self.tableView.dataSource = self;
-
+    // Should we cache?
+    [PFCloud callFunctionInBackground:@"getLists" withParameters:@{} block:^(id  _Nullable objects, NSError * _Nullable error) {
+        if (!error) {
+            self.lists = objects;
+            [self.tableView reloadData];
+        }
+        else {
+            // TODO: Prompt user to check connection and try again
+        }
+    }];
+    
     self.liveQueryClient = [[PFLiveQueryClient alloc] init];
     self.liveQuery = [SharecartUpdate query]; // TODO: Only load new updates (keep track of last loaded)
 
