@@ -55,9 +55,10 @@ The app allows users to create a living grocery list and share it with a group o
 - [ ] User can indicate that they started\stopped shopping
     - [ ] the list view should show who's currently shopping
 - [ ] Automatically stop shopping after X minutes
-- [ ] Notification when changes occur
+- [x] In-app notification when changes occur
     - [ ] shopping status to all members
-    - [ ] items edited, added, removed, etc. to members currently shopping (give option for users to choose whether they want notifications even if not shopping)
+    - [x] items added
+    - [ ] all list and not just currently open list
 - [ ] Priority specification with corresponding colors in cell
     - [ ] high priority item edit notifications are sent to all users forcibly
 - [ ] Lists can be shared with a link
