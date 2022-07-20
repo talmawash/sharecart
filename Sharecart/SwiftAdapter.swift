@@ -10,9 +10,9 @@ import SwiftEntryKit
 import UIKit
 
 public class SwiftAdapter : NSObject {
-    @objc public func displayTopToast(title: String, desc: String) {
+    @objc public static func displayTopFloat(title: String, desc: String) {
         
-        var attributes = EKAttributes.topToast
+        var attributes = EKAttributes.topFloat
         
         attributes.entryBackground = .color(color: EKColor.standardBackground)
         attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.3), scale: .init(from: 1, to: 0.7, duration: 0.7)))
