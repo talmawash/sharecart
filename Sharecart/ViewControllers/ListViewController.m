@@ -75,7 +75,14 @@
 }
 
 - (IBAction)inviteTap:(id)sender {
-    
+    [PFCloud callFunctionInBackground:@"createInvitation" withParameters:@{@"listId": self.list.objectId} block:^(PFObject *object, NSError * _Nullable error) {
+        if (!error) {
+            [SwiftAdapter displayInvitationCodeWithCode:object.objectId];
+        }
+        else {
+            // TODO: Prompt user to check connection and try again
+        }
+    }];
 }
 
 #pragma mark - Table View
