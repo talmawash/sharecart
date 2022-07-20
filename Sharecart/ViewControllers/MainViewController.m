@@ -106,12 +106,17 @@
 
 - (void) handleNewUpdate:(SharecartUpdate *)update {
     if ([update.type isEqualToString:@"itemAdded"]) {
+        SharecartItem* item = [[SharecartItem alloc] init];
+        item.objectId = update.after[@"objectId"];
+        item.list = update.after[@"list"];
+        item.name = update.after[@"name"];
+        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+        NSString *key = [@"lastUpdate_" stringByAppendingString:item.list.objectId];
+        NSInteger lastUpdate = [prefs integerForKey:key];
+        if (lastUpdate < update.number) {
+            [prefs setInteger:update.number forKey:key];
+        }
         if (self.selectedView && self.selectedView.parentViewController /* sometimes the view is not set to null after being dimissed, but parentViewController will be null if the view was dimissed and not garbage collected */) {
-            SharecartItem* item = [[SharecartItem alloc] init];
-            item.objectId = update.after[@"objectId"];
-            item.list = update.after[@"list"];
-            item.name = update.after[@"name"];
-            
             if ([self.selectedView.list.objectId isEqualToString:item.list.objectId]) {
                 [self.selectedView itemAddUpdate: item];
             }
