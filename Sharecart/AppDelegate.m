@@ -7,6 +7,7 @@
 
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
+#import "Sharecart-Swift.h"
 
 @interface AppDelegate ()
 
@@ -25,6 +26,7 @@
     }];
 
     [Parse initializeWithConfiguration:config];
+    [SwiftAdapter setupAttributes];
     return YES;
 }
 

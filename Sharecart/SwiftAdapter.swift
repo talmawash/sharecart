@@ -11,52 +11,37 @@ import UIKit
 
 public class SwiftAdapter : NSObject {
     
-    // Below code is adapted from SwiftEntryKit examples on github
-    // https://github.com/huri000/SwiftEntryKit/tree/master/Example/SwiftEntryKit
-
-    @objc public static func displayTopFloat(title: String, desc: String) {
-        
-        var attributes = EKAttributes.topFloat
-        
-        attributes.entryBackground = .color(color: EKColor.standardBackground)
-        attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.3), scale: .init(from: 1, to: 0.7, duration: 0.7)))
-        attributes.shadow = .active(with: .init(color: .black, opacity: 0.5, radius: 10, offset: .zero))
-        attributes.statusBar = .inferred
-        attributes.scroll = .enabled(swipeable: true, pullbackAnimation: .jolt)
-        attributes.positionConstraints.maxSize = .init(width: .constant(value: min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)), height: .intrinsic)
-        attributes.displayDuration = 1
-        attributes.entryInteraction = .delayExit(by: 0.5)
-
-        let title = EKProperty.LabelContent(text: title, style: .init(font: UIFont.systemFont(ofSize: 17), color: EKColor.standardContent))
-        let description = EKProperty.LabelContent(text: desc, style: .init(font: UIFont.systemFont(ofSize: 15), color: EKColor.standardContent))
-        let simpleMessage = EKSimpleMessage(image: nil, title: title, description: description)
-        let notificationMessage = EKNotificationMessage(simpleMessage: simpleMessage)
-
-        let contentView = EKNotificationMessageView(with: notificationMessage)
-        SwiftEntryKit.display(entry: contentView, using: attributes)
-    }
+    static var topFloatAttributes = EKAttributes.topFloat
+    static var invCodeAttributes = EKAttributes.centerFloat
     
-    // Below code is adapted from SwiftEntryKit examples on github
-    // https://github.com/huri000/SwiftEntryKit/tree/master/Example/SwiftEntryKit
-
-    @objc public static func displayInvitationCode(code: String) {
-        var attributes = EKAttributes.centerFloat
-        attributes.hapticFeedbackType = .success
-        attributes.displayDuration = .infinity
-        attributes.entryBackground = .color(color: EKColor(UIColor.systemBackground))
-        attributes.screenBackground = .color(color: EKColor(UIColor(white: 50.0/255.0, alpha: 0.3)))
-        attributes.shadow = .active(
+    @objc public static func setupAttributes() {
+        
+        topFloatAttributes.entryBackground = .color(color: EKColor.standardBackground)
+        topFloatAttributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.3), scale: .init(from: 1, to: 0.7, duration: 0.7)))
+        topFloatAttributes.shadow = .active(with: .init(color: .black, opacity: 0.5, radius: 10, offset: .zero))
+        topFloatAttributes.statusBar = .inferred
+        topFloatAttributes.scroll = .enabled(swipeable: true, pullbackAnimation: .jolt)
+        topFloatAttributes.positionConstraints.maxSize = .init(width: .constant(value: min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)), height: .intrinsic)
+        topFloatAttributes.displayDuration = 1
+        
+        
+        topFloatAttributes.entryInteraction = .delayExit(by: 0.5)
+        invCodeAttributes.hapticFeedbackType = .success
+        invCodeAttributes.displayDuration = .infinity
+        invCodeAttributes.entryBackground = .color(color: EKColor(UIColor.systemBackground))
+        invCodeAttributes.screenBackground = .color(color: EKColor(UIColor(white: 50.0/255.0, alpha: 0.3)))
+        invCodeAttributes.shadow = .active(
             with: .init(
                 color: .black,
                 opacity: 0.3,
                 radius: 8
             )
         )
-        attributes.screenInteraction = .dismiss
-        attributes.entryInteraction = .absorbTouches
-        attributes.scroll = .enabled(swipeable: true, pullbackAnimation: .jolt)
-        attributes.roundCorners = .all(radius: 8)
-        attributes.entranceAnimation = .init(
+        invCodeAttributes.screenInteraction = .dismiss
+        invCodeAttributes.entryInteraction = .absorbTouches
+        invCodeAttributes.scroll = .enabled(swipeable: true, pullbackAnimation: .jolt)
+        invCodeAttributes.roundCorners = .all(radius: 8)
+        invCodeAttributes.entranceAnimation = .init(
             translate: .init(
                 duration: 0.7,
                 spring: .init(damping: 0.7, initialVelocity: 0)
@@ -68,20 +53,39 @@ public class SwiftAdapter : NSObject {
                 spring: .init(damping: 1, initialVelocity: 0)
             )
         )
-        attributes.exitAnimation = .init(
+        invCodeAttributes.exitAnimation = .init(
             translate: .init(duration: 0.2)
         )
-        attributes.popBehavior = .animated(
+        invCodeAttributes.popBehavior = .animated(
             animation: .init(
                 translate: .init(duration: 0.35)
             )
         )
-        attributes.positionConstraints.size = .init(
+        invCodeAttributes.positionConstraints.size = .init(
             width: .offset(value: 20),
             height: .intrinsic
         )
-        attributes.positionConstraints.maxSize = .init(width: .constant(value: min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)),height: .intrinsic)
-        attributes.statusBar = .inferred
+        invCodeAttributes.positionConstraints.maxSize = .init(width: .constant(value: min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)),height: .intrinsic)
+        invCodeAttributes.statusBar = .inferred
+    }
+    
+    // Below code is adapted from SwiftEntryKit examples on github
+    // https://github.com/huri000/SwiftEntryKit/tree/master/Example/SwiftEntryKit
+
+    @objc public static func displayTopFloat(title: String, desc: String) {
+        let title = EKProperty.LabelContent(text: title, style: .init(font: UIFont.systemFont(ofSize: 17), color: EKColor.standardContent))
+        let description = EKProperty.LabelContent(text: desc, style: .init(font: UIFont.systemFont(ofSize: 15), color: EKColor.standardContent))
+        let simpleMessage = EKSimpleMessage(image: nil, title: title, description: description)
+        let notificationMessage = EKNotificationMessage(simpleMessage: simpleMessage)
+
+        let contentView = EKNotificationMessageView(with: notificationMessage)
+        SwiftEntryKit.display(entry: contentView, using: topFloatAttributes)
+    }
+    
+    // Below code is adapted from SwiftEntryKit examples on github
+    // https://github.com/huri000/SwiftEntryKit/tree/master/Example/SwiftEntryKit
+
+    @objc public static func displayInvitationCode(code: String) {
         let title = EKProperty.LabelContent(
             text: "Code has been generated",
             style: .init(
@@ -118,6 +122,6 @@ public class SwiftAdapter : NSObject {
                 SwiftEntryKit.dismiss()
         }
         let view = EKPopUpMessageView(with: message)
-        SwiftEntryKit.display(entry: view, using: attributes)
+        SwiftEntryKit.display(entry: view, using: invCodeAttributes)
     }
 }
