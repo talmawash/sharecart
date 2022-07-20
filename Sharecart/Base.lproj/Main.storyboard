@@ -176,11 +176,18 @@
                                 <action selector="dismissTap:" destination="d82-RI-0ii" id="TC8-33-pvX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="BMH-ky-rAT">
-                            <connections>
-                                <action selector="addItemTap:" destination="d82-RI-0ii" id="rGR-Pa-lAo"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="plus" catalog="system" id="BMH-ky-rAT">
+                                <connections>
+                                    <action selector="addItemTap:" destination="d82-RI-0ii" id="rGR-Pa-lAo"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="person.badge.plus" catalog="system" id="dyK-SO-QhP">
+                                <connections>
+                                    <action selector="inviteTap:" destination="d82-RI-0ii" id="j4f-Ho-vCN"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="e3w-54-7tV" id="hv8-m3-toF"/>
@@ -212,6 +219,7 @@
     </scenes>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="person.badge.plus" catalog="system" width="128" height="124"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

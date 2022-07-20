@@ -74,6 +74,10 @@
        [self presentViewController:alertController animated:YES completion:nil];
 }
 
+- (IBAction)inviteTap:(id)sender {
+    
+}
+
 #pragma mark - Table View
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
