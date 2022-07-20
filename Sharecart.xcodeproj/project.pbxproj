@@ -99,6 +99,7 @@
 				39E8504328766E2D00BC04BA /* Views */,
 				39E85042287641AB00BC04BA /* ViewControllers */,
 				3976103728760FDC003EB1AB /* AppDelegate.h */,
+				395FBDFA2887733E00B131F7 /* Sharecart-Bridging-Header.h */,
 				395FBDF32887720F00B131F7 /* SwiftAdapter.swift */,
 				3976103828760FDC003EB1AB /* AppDelegate.m */,
 				3976103A28760FDC003EB1AB /* SceneDelegate.h */,
@@ -131,7 +132,6 @@
 				39E850512878EBA200BC04BA /* ListTableViewCell.h */,
 				39E850522878EBA200BC04BA /* ListTableViewCell.m */,
 				39976A252886242D00548CC0 /* ItemTableViewCell.h */,
-				395FBDFA2887733E00B131F7 /* Sharecart-Bridging-Header.h */,
 				39976A262886242D00548CC0 /* ItemTableViewCell.m */,
 			);
 			path = Views;
@@ -455,7 +455,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tariqmeta.Sharecart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Sharecart/Views/Sharecart-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sharecart/Sharecart-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -487,7 +487,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tariqmeta.Sharecart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Sharecart/Views/Sharecart-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sharecart/Sharecart-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
