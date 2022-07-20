@@ -59,14 +59,14 @@
 
     [self.liveQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (SharecartUpdate *curr in objects) {
-            NSLog(@"Had an update of type %@\nChanged from %@\n\nto\n\n%@", curr.type, curr.before, curr.after);
+            // NSLog(@"Had an update of type %@\nChanged from %@\n\nto\n\n%@", curr.type, curr.before, curr.after);
             [self handleMissedUpdate:curr];
         }
     }];
 
     self.liveQuerySubscription = [[self.liveQueryClient subscribeToQuery:self.liveQuery] addCreateHandler:^(PFQuery<PFObject *> * _Nonnull query, PFObject * _Nonnull object) {
         SharecartUpdate *update = (SharecartUpdate*)object;
-        NSLog(@"Had an update of type %@\nChanged from %@\n\nto\n\n%@", update.type, update.before, update.after);
+        // NSLog(@"Had an update of type %@\nChanged from %@\n\nto\n\n%@", update.type, update.before, update.after);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self handleNewUpdate: update];
         });
@@ -83,8 +83,23 @@
         NSString *key = [@"lastUpdate_" stringByAppendingString:updatedItem.list.objectId];
         NSInteger lastUpdate = [prefs integerForKey:key];
         if (lastUpdate < update.number) {
-            NSLog(@"Item %@ was added to the list %@ while you were off the app\n", updatedItem.name, updatedItem.list.objectId);
             [prefs setInteger:update.number forKey:key];
+            NSString *listName = @"";
+            for (SharecartList *curr in self.lists) {
+                if ([curr.objectId isEqualToString:updatedItem.list.objectId]) {
+                    listName = curr.name;
+                }
+            }
+            NSString *msg = [NSString stringWithFormat:@"Item \"%@\" was added to the list %@ while you were off the app", updatedItem.name, listName];
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Updates"
+                                           message:msg
+                                           preferredStyle:UIAlertControllerStyleAlert];
+
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+               handler:^(UIAlertAction * action) {}];
+
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
         }
     }
 }

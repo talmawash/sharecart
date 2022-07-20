@@ -9,5 +9,6 @@ target 'Sharecart' do
   pod 'Parse'
   pod 'ParseLiveQuery'
   pod 'ProgressHUD'
+  pod 'SwiftEntryKit'
 
 end
