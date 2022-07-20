@@ -31,29 +31,20 @@
     [super viewDidLoad];
     
     self.tableView.dataSource = self;
-
-    self.liveQueryClient = [[PFLiveQueryClient alloc] init];
-    self.liveQuery = [SharecartUpdate query]; // TODO: Only load new updates (keep track of last loaded)
-
-
-    [self.liveQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        for (SharecartUpdate *curr in objects) {
-            NSLog(@"Had an update of type %@\nChanged from %@\n\nto\n\n%@", curr.type, curr.before, curr.after);
-        }
-    }];
-
-    self.liveQuerySubscription = [[self.liveQueryClient subscribeToQuery:self.liveQuery] addCreateHandler:^(PFQuery<PFObject *> * _Nonnull query, PFObject * _Nonnull object) {
-        SharecartUpdate *update = (SharecartUpdate*)object;
-        NSLog(@"Had an update of type %@\nChanged from %@\n\nto\n\n%@", update.type, update.before, update.after);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self handleNewUpdate: update];
-        });
-    }];
-    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    // Should we cache?
     [PFCloud callFunctionInBackground:@"getLists" withParameters:@{} block:^(id  _Nullable objects, NSError * _Nullable error) {
         if (!error) {
             self.lists = objects;
+            for (SharecartList *curr in objects) {
+                NSString *key = [@"lastUpdate_" stringByAppendingString:curr.objectId];
+                NSInteger lastUpdate = [prefs integerForKey:key];
+                if (lastUpdate == 0) { // Not present in settings
+                    [prefs setInteger:curr.lastUpdate forKey:key];
+                }
+            }
             [self.tableView reloadData];
+            [self setupLiveQuery];
         }
         else {
             // TODO: Prompt user to check connection and try again
@@ -61,14 +52,71 @@
     }];
 }
 
+- (void)setupLiveQuery {
+    self.liveQueryClient = [[PFLiveQueryClient alloc] init];
+    self.liveQuery = [SharecartUpdate query]; // TODO: Only load new updates (keep track of last loaded)
+    [self.liveQuery orderByAscending:@"createdAt"];
+
+    [self.liveQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        for (SharecartUpdate *curr in objects) {
+            // NSLog(@"Had an update of type %@\nChanged from %@\n\nto\n\n%@", curr.type, curr.before, curr.after);
+            [self handleMissedUpdate:curr];
+        }
+    }];
+
+    self.liveQuerySubscription = [[self.liveQueryClient subscribeToQuery:self.liveQuery] addCreateHandler:^(PFQuery<PFObject *> * _Nonnull query, PFObject * _Nonnull object) {
+        SharecartUpdate *update = (SharecartUpdate*)object;
+        // NSLog(@"Had an update of type %@\nChanged from %@\n\nto\n\n%@", update.type, update.before, update.after);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self handleNewUpdate: update];
+        });
+    }];
+}
+
+- (void) handleMissedUpdate:(SharecartUpdate *)update {
+    if ([update.type isEqualToString:@"itemAdded"]) {
+        SharecartItem* updatedItem = [[SharecartItem alloc] init];
+        updatedItem.objectId = update.after[@"objectId"];
+        updatedItem.list = update.after[@"list"];
+        updatedItem.name = update.after[@"name"];
+        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+        NSString *key = [@"lastUpdate_" stringByAppendingString:updatedItem.list.objectId];
+        NSInteger lastUpdate = [prefs integerForKey:key];
+        if (lastUpdate < update.number) {
+            [prefs setInteger:update.number forKey:key];
+            NSString *listName = @"";
+            for (SharecartList *curr in self.lists) {
+                if ([curr.objectId isEqualToString:updatedItem.list.objectId]) {
+                    listName = curr.name;
+                }
+            }
+            NSString *msg = [NSString stringWithFormat:@"Item \"%@\" was added to the list %@ while you were off the app", updatedItem.name, listName];
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Updates"
+                                           message:msg
+                                           preferredStyle:UIAlertControllerStyleAlert];
+
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+               handler:^(UIAlertAction * action) {}];
+
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }
+}
+
 - (void) handleNewUpdate:(SharecartUpdate *)update {
     if ([update.type isEqualToString:@"itemAdded"]) {
+        SharecartItem* item = [[SharecartItem alloc] init];
+        item.objectId = update.after[@"objectId"];
+        item.list = update.after[@"list"];
+        item.name = update.after[@"name"];
+        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+        NSString *key = [@"lastUpdate_" stringByAppendingString:item.list.objectId];
+        NSInteger lastUpdate = [prefs integerForKey:key];
+        if (lastUpdate < update.number) {
+            [prefs setInteger:update.number forKey:key];
+        }
         if (self.selectedView && self.selectedView.parentViewController /* sometimes the view is not set to null after being dimissed, but parentViewController will be null if the view was dimissed and not garbage collected */) {
-            SharecartItem* item = [[SharecartItem alloc] init];
-            item.objectId = update.after[@"objectId"];
-            item.list = update.after[@"list"];
-            item.name = update.after[@"name"];
-            
             if ([self.selectedView.list.objectId isEqualToString:item.list.objectId]) {
                 [self.selectedView itemAddUpdate: item];
             }
