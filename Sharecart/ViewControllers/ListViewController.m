@@ -6,6 +6,7 @@
 //
 
 #import "ListViewController.h"
+#import "Sharecart-Swift.h"
 
 @interface ListViewController ()
 
@@ -28,6 +29,7 @@
             return;
         }
     }
+    [SwiftAdapter displayTopFloatWithTitle:@"New Item" desc:[NSString stringWithFormat:@"%@ was added just now", item.name]];
     [self.items insertObject:item atIndex:0];
     [self.tableView reloadData];
 }
