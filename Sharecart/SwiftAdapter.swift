@@ -17,7 +17,7 @@ public class SwiftAdapter : NSObject {
         attributes.entryBackground = .color(color: EKColor.standardBackground)
         attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.3), scale: .init(from: 1, to: 0.7, duration: 0.7)))
         attributes.shadow = .active(with: .init(color: .black, opacity: 0.5, radius: 10, offset: .zero))
-        attributes.statusBar = .light
+        attributes.statusBar = .inferred
         attributes.scroll = .enabled(swipeable: true, pullbackAnimation: .jolt)
         attributes.positionConstraints.maxSize = .init(width: .constant(value: min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)), height: .intrinsic)
         attributes.displayDuration = 1
