@@ -35,3 +35,38 @@ Parse.Cloud.define("createInvitation", async (request) => {
   fields: ["listId"],
   requireUser: true
 });
+
+Parse.Cloud.define("joinList", async (request) => {
+  const invitations = await new Parse.Query("SharecartInvitation").equalTo("objectId", request.params.code).find({ useMasterKey: true });
+  if (invitations.length == 1) {
+      const invitation = invitations[0];
+      
+      if (invitation.used) {
+          throw("Invitation already used!");
+      }
+      
+      const hourDifference = (Date.now() - invitation.createdAt) / (1000 * 60 * 60)
+      if (hourDifference >= 24) {
+          throw("Invitation exipred!");
+      }
+      
+      const list = invitation.get("list");
+      const listInUserLists = await request.user.get("lists").query().equalTo("objectId", list.id).find({ useMasterKey:true })
+      if (listInUserLists.length > 0) {
+          throw("Already in list!");
+      }
+      
+      await invitation.save({ "used": true }, { useMasterKey: true });
+      
+      request.user.get("lists").add(list);
+      await request.user.save(null, { useMasterKey:true });
+      
+      list.fetch({ useMasterKey: true }); // Get missing paramaters such as name before sending to user
+      list.relation("users").add(request.user);
+      return await list.save(null, { useMasterKey: true });
+  }
+  throw("Invitation not found");
+},{
+  fields: ["code"],
+  requireUser: true
+});
