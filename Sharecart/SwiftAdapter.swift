@@ -145,6 +145,14 @@ public class SwiftAdapter : NSObject {
         ProgressHUD.show()
     }
     
+    @objc public static func showProgressSucceed() {
+        ProgressHUD.showSucceed()
+    }
+    
+    @objc public static func showProgressFailed() {
+        ProgressHUD.showFailed()
+    }
+    
     @objc public static func dismissProgressHUD() {
         ProgressHUD.dismiss()
     }
