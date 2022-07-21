@@ -129,4 +129,12 @@ public class SwiftAdapter : NSObject {
         let view = EKPopUpMessageView(with: message)
         SwiftEntryKit.display(entry: view, using: centerFloatAttributes)
     }
+    @objc public static func displayAddList() {
+        let view = Bundle.main.loadNibNamed("AddList", owner: NSObject())?.first as! UIScrollView
+        SwiftEntryKit.display(entry: view, using: centerFloatAttributes, presentInsideKeyWindow: true)
+    }
+    
+    @objc public static func dismissPopup() {
+        SwiftEntryKit.dismiss();
+    }
 }
