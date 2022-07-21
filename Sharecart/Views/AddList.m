@@ -44,6 +44,8 @@
 }
 
 - (IBAction)buttonTap:(id)sender {
+    [SwiftAdapter showProgressHUD];
+    [SwiftAdapter dismissPopup];
     if (self.segmentControl.selectedSegmentIndex == 0) {
         [PFCloud callFunctionInBackground:@"newList" withParameters:@{@"name": self.txtMain.text} block:^(id  _Nullable object, NSError * _Nullable error) {
             if (!error) {
@@ -54,6 +56,7 @@
             else {
                 // TODO: Prompt user to check connection and try again
             }
+            [SwiftAdapter dismissProgressHUD];
         }];
     }
     else {

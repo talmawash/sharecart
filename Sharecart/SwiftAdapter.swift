@@ -8,6 +8,7 @@
 import Foundation
 import SwiftEntryKit
 import UIKit
+import ProgressHUD
 
 public class SwiftAdapter : NSObject {
     
@@ -138,4 +139,14 @@ public class SwiftAdapter : NSObject {
     @objc public static func dismissPopup() {
         SwiftEntryKit.dismiss();
     }
+    
+    @objc public static func showProgressHUD() {
+        ProgressHUD.animationType = .circleSpinFade
+        ProgressHUD.show()
+    }
+    
+    @objc public static func dismissProgressHUD() {
+        ProgressHUD.dismiss()
+    }
+
 }
