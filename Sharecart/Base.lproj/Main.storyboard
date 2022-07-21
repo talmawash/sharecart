@@ -124,11 +124,14 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="O1G-aR-AcY">
-                            <connections>
-                                <action selector="addListTap:" destination="yhn-ui-zAv" id="kmW-eh-67c"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="plus" catalog="system" id="O1G-aR-AcY">
+                                <connections>
+                                    <action selector="addListTap:" destination="yhn-ui-zAv" id="kmW-eh-67c"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem id="Zi3-5P-ZIf"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="kk4-wf-28J" id="AKt-3r-wJM"/>
@@ -182,7 +185,7 @@
                                     <action selector="addItemTap:" destination="d82-RI-0ii" id="rGR-Pa-lAo"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="person.badge.plus" catalog="system" id="dyK-SO-QhP">
+                            <barButtonItem image="person.badge.plus" catalog="system" id="dyK-SO-QhP">
                                 <connections>
                                     <action selector="inviteTap:" destination="d82-RI-0ii" id="j4f-Ho-vCN"/>
                                 </connections>

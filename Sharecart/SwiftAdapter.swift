@@ -8,11 +8,12 @@
 import Foundation
 import SwiftEntryKit
 import UIKit
+import ProgressHUD
 
 public class SwiftAdapter : NSObject {
     
     static var topFloatAttributes = EKAttributes.topFloat
-    static var invCodeAttributes = EKAttributes.centerFloat
+    static var centerFloatAttributes = EKAttributes.centerFloat
     
     @objc public static func setupAttributes() {
         
@@ -23,25 +24,24 @@ public class SwiftAdapter : NSObject {
         topFloatAttributes.scroll = .enabled(swipeable: true, pullbackAnimation: .jolt)
         topFloatAttributes.positionConstraints.maxSize = .init(width: .constant(value: min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)), height: .intrinsic)
         topFloatAttributes.displayDuration = 1
-        
-        
         topFloatAttributes.entryInteraction = .delayExit(by: 0.5)
-        invCodeAttributes.hapticFeedbackType = .success
-        invCodeAttributes.displayDuration = .infinity
-        invCodeAttributes.entryBackground = .color(color: EKColor(UIColor.systemBackground))
-        invCodeAttributes.screenBackground = .color(color: EKColor(UIColor(white: 50.0/255.0, alpha: 0.3)))
-        invCodeAttributes.shadow = .active(
+        
+        centerFloatAttributes.hapticFeedbackType = .success
+        centerFloatAttributes.displayDuration = .infinity
+        centerFloatAttributes.entryBackground = .color(color: EKColor(UIColor.systemBackground))
+        centerFloatAttributes.screenBackground = .color(color: EKColor(UIColor(white: 50.0/255.0, alpha: 0.3)))
+        centerFloatAttributes.shadow = .active(
             with: .init(
                 color: .black,
                 opacity: 0.3,
                 radius: 8
             )
         )
-        invCodeAttributes.screenInteraction = .dismiss
-        invCodeAttributes.entryInteraction = .absorbTouches
-        invCodeAttributes.scroll = .enabled(swipeable: true, pullbackAnimation: .jolt)
-        invCodeAttributes.roundCorners = .all(radius: 8)
-        invCodeAttributes.entranceAnimation = .init(
+        centerFloatAttributes.screenInteraction = .dismiss
+        centerFloatAttributes.entryInteraction = .absorbTouches
+        centerFloatAttributes.scroll = .enabled(swipeable: true, pullbackAnimation: .jolt)
+        centerFloatAttributes.roundCorners = .all(radius: 8)
+        centerFloatAttributes.entranceAnimation = .init(
             translate: .init(
                 duration: 0.7,
                 spring: .init(damping: 0.7, initialVelocity: 0)
@@ -53,20 +53,26 @@ public class SwiftAdapter : NSObject {
                 spring: .init(damping: 1, initialVelocity: 0)
             )
         )
-        invCodeAttributes.exitAnimation = .init(
+        centerFloatAttributes.exitAnimation = .init(
             translate: .init(duration: 0.2)
         )
-        invCodeAttributes.popBehavior = .animated(
+        centerFloatAttributes.popBehavior = .animated(
             animation: .init(
                 translate: .init(duration: 0.35)
             )
         )
-        invCodeAttributes.positionConstraints.size = .init(
+        centerFloatAttributes.positionConstraints.size = .init(
             width: .offset(value: 20),
             height: .intrinsic
         )
-        invCodeAttributes.positionConstraints.maxSize = .init(width: .constant(value: min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)),height: .intrinsic)
-        invCodeAttributes.statusBar = .inferred
+        centerFloatAttributes.positionConstraints.maxSize = .init(width: .constant(value: min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)),height: .intrinsic)
+        centerFloatAttributes.statusBar = .inferred
+        centerFloatAttributes.positionConstraints.keyboardRelation = .bind(
+            offset: .init(
+                bottom: 15,
+                screenEdgeResistance: 0
+            )
+        )
     }
     
     // Below code is adapted from SwiftEntryKit examples on github
@@ -122,6 +128,33 @@ public class SwiftAdapter : NSObject {
                 SwiftEntryKit.dismiss()
         }
         let view = EKPopUpMessageView(with: message)
-        SwiftEntryKit.display(entry: view, using: invCodeAttributes)
+        SwiftEntryKit.display(entry: view, using: centerFloatAttributes)
     }
+    @objc public static func displayAddList(delegate: AddListViewDelegate) {
+        let view = Bundle.main.loadNibNamed("AddListView", owner: NSObject())?.first as! AddListView
+        view.addListDelegate = delegate;
+        SwiftEntryKit.display(entry: view, using: centerFloatAttributes, presentInsideKeyWindow: true)
+    }
+    
+    @objc public static func dismissPopup() {
+        SwiftEntryKit.dismiss();
+    }
+    
+    @objc public static func showProgressHUD() {
+        ProgressHUD.animationType = .circleSpinFade
+        ProgressHUD.show()
+    }
+    
+    @objc public static func showProgressSucceed() {
+        ProgressHUD.showSucceed()
+    }
+    
+    @objc public static func showProgressFailed() {
+        ProgressHUD.showFailed()
+    }
+    
+    @objc public static func dismissProgressHUD() {
+        ProgressHUD.dismiss()
+    }
+
 }
