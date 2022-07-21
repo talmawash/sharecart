@@ -9,7 +9,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol AddListViewDelegate;
+@interface AddListViewDelegate
+- (void) onListAdded:(SharecartList*)list;
+- (void) onListJoined:(SharecartList*)list;
+@end
+
 @interface AddList : UIScrollView
+
+@property (weak, nonatomic) AddListViewDelegate* addListDelegate;
 
 @end
 
