@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AMy-D0-66I" customClass="AddList">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="170"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V3m-Sa-sUL">
+                    <rect key="frame" x="105" y="16" width="121" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <segments>
+                        <segment title="Create"/>
+                        <segment title="Join"/>
+                    </segments>
+                    <connections>
+                        <action selector="segmentChange:" destination="AMy-D0-66I" eventType="valueChanged" id="lf8-Xo-ShD"/>
+                    </connections>
+                </segmentedControl>
+                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZPz-Qa-JDE">
+                    <rect key="frame" x="16" y="68" width="298" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2Q-gK-0KO">
+                    <rect key="frame" x="123" y="119" width="85" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                    <connections>
+                        <action selector="buttonTap:" destination="AMy-D0-66I" eventType="touchUpInside" id="Jgx-mn-YAx"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Yok-Ja-j9c"/>
+            <constraints>
+                <constraint firstAttribute="width" constant="330" id="WCv-K9-7zu"/>
+                <constraint firstAttribute="height" constant="170" id="dUe-UV-0YF"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="contentLayoutGuide" id="NPB-Dp-Jyq"/>
+            <viewLayoutGuide key="frameLayoutGuide" id="nMc-uH-cat"/>
+            <connections>
+                <outlet property="btnSubmit" destination="O2Q-gK-0KO" id="IH4-YX-md9"/>
+                <outlet property="segmentControl" destination="V3m-Sa-sUL" id="pc9-Kb-Ytl"/>
+                <outlet property="txtMain" destination="ZPz-Qa-JDE" id="5se-3N-Zji"/>
+            </connections>
+            <point key="canvasLocation" x="-344.92753623188406" y="-617.41071428571422"/>
+        </scrollView>
+    </objects>
+</document>

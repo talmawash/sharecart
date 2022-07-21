@@ -23,6 +23,8 @@
 		39E850502878DDCF00BC04BA /* SharecartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8504F2878DDCF00BC04BA /* SharecartItem.m */; };
 		39E850532878EBA200BC04BA /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E850522878EBA200BC04BA /* ListTableViewCell.m */; };
 		39E850562878F9E700BC04BA /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E850552878F9E700BC04BA /* ListViewController.m */; };
+		39FD64862888BD5A00201CC3 /* AddList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39FD64852888BD5A00201CC3 /* AddList.xib */; };
+		39FD64892888BD7B00201CC3 /* AddList.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD64882888BD7B00201CC3 /* AddList.m */; };
 		EB541CAE080DEC0EECA2F8D6 /* Pods_Sharecart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D798B63256236A4CA97E8C8F /* Pods_Sharecart.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,9 @@
 		39E850522878EBA200BC04BA /* ListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListTableViewCell.m; sourceTree = "<group>"; };
 		39E850542878F9E700BC04BA /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		39E850552878F9E700BC04BA /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		39FD64852888BD5A00201CC3 /* AddList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddList.xib; sourceTree = "<group>"; };
+		39FD64872888BD7B00201CC3 /* AddList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddList.h; sourceTree = "<group>"; };
+		39FD64882888BD7B00201CC3 /* AddList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddList.m; sourceTree = "<group>"; };
 		4FD09E466A961F8F5D83A143 /* Pods-Sharecart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharecart.debug.xcconfig"; path = "Target Support Files/Pods-Sharecart/Pods-Sharecart.debug.xcconfig"; sourceTree = "<group>"; };
 		D3B350C605E9BD3CC1CF7DE1 /* Pods-Sharecart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharecart.release.xcconfig"; path = "Target Support Files/Pods-Sharecart/Pods-Sharecart.release.xcconfig"; sourceTree = "<group>"; };
 		D798B63256236A4CA97E8C8F /* Pods_Sharecart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sharecart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +138,9 @@
 				39E850522878EBA200BC04BA /* ListTableViewCell.m */,
 				39976A252886242D00548CC0 /* ItemTableViewCell.h */,
 				39976A262886242D00548CC0 /* ItemTableViewCell.m */,
+				39FD64852888BD5A00201CC3 /* AddList.xib */,
+				39FD64872888BD7B00201CC3 /* AddList.h */,
+				39FD64882888BD7B00201CC3 /* AddList.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +239,7 @@
 				3976104728760FDC003EB1AB /* LaunchScreen.storyboard in Resources */,
 				3976104428760FDC003EB1AB /* Assets.xcassets in Resources */,
 				3976104228760FDC003EB1AB /* Main.storyboard in Resources */,
+				39FD64862888BD5A00201CC3 /* AddList.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3976103F28760FDC003EB1AB /* LoginViewController.m in Sources */,
+				39FD64892888BD7B00201CC3 /* AddList.m in Sources */,
 				3976103928760FDC003EB1AB /* AppDelegate.m in Sources */,
 				39E850562878F9E700BC04BA /* ListViewController.m in Sources */,
 				3976104A28760FDD003EB1AB /* main.m in Sources */,
