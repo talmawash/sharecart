@@ -148,11 +148,15 @@
 
 - (void)onListAdded:(SharecartList *)list {
     [self.lists insertObject:list atIndex:0];
+    NSString *key = [@"lastUpdate_" stringByAppendingString:list.objectId];
+    [[NSUserDefaults standardUserDefaults] setInteger:list.lastUpdate forKey:key];
     [self.tableView reloadData];
 }
 
 - (void)onListJoined:(SharecartList *)list {
     [self.lists insertObject:list atIndex:0];
+    NSString *key = [@"lastUpdate_" stringByAppendingString:list.objectId];
+    [[NSUserDefaults standardUserDefaults] setInteger:list.lastUpdate forKey:key];
     [self.tableView reloadData];
 }
 
