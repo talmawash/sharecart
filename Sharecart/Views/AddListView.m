@@ -5,17 +5,17 @@
 //  Created by Tariq Almawash on 7/20/22.
 //
 
-#import "AddList.h"
+#import "AddListView.h"
 #import "Sharecart-Swift.h"
 #import "Parse/Parse.h"
 
-@interface AddList()
+@interface AddListView()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (weak, nonatomic) IBOutlet UIButton *btnSubmit;
 @property (weak, nonatomic) IBOutlet UITextField *txtMain;
 @end
 
-@implementation AddList
+@implementation AddListView
 
 /*
 // Only override drawRect: if you perform custom drawing.

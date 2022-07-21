@@ -131,7 +131,7 @@ public class SwiftAdapter : NSObject {
         SwiftEntryKit.display(entry: view, using: centerFloatAttributes)
     }
     @objc public static func displayAddList(delegate: AddListViewDelegate) {
-        let view = Bundle.main.loadNibNamed("AddList", owner: NSObject())?.first as! AddList
+        let view = Bundle.main.loadNibNamed("AddListView", owner: NSObject())?.first as! AddListView
         view.addListDelegate = delegate;
         SwiftEntryKit.display(entry: view, using: centerFloatAttributes, presentInsideKeyWindow: true)
     }
