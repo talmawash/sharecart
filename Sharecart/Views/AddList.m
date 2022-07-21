@@ -7,6 +7,7 @@
 
 #import "AddList.h"
 #import "Sharecart-Swift.h"
+#import "Parse/Parse.h"
 
 @interface AddList()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
@@ -44,14 +45,18 @@
 
 - (IBAction)buttonTap:(id)sender {
     if (self.segmentControl.selectedSegmentIndex == 0) {
-        [self.btnSubmit.titleLabel setText:@"Create"];
-        self.txtMain.placeholder = @"New list name";
-        self.txtMain.text = @"";
+        [PFCloud callFunctionInBackground:@"newList" withParameters:@{@"name": self.txtMain.text} block:^(id  _Nullable object, NSError * _Nullable error) {
+            if (!error) {
+                if (self.addListDelegate) {
+                    [self.addListDelegate onListAdded:object];
+                }
+            }
+            else {
+                // TODO: Prompt user to check connection and try again
+            }
+        }];
     }
     else {
-        [self.btnSubmit.titleLabel setText:@"Join"];
-        self.txtMain.placeholder = @"Invitation code";
-        self.txtMain.text = @"";
     }
 }
 @end
