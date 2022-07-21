@@ -9,15 +9,14 @@
 #import "SharecartList.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol AddListViewDelegate;
-@interface AddListViewDelegate
+@protocol AddListViewDelegate<NSObject>
 - (void) onListAdded:(SharecartList*)list;
 - (void) onListJoined:(SharecartList*)list;
 @end
 
 @interface AddList : UIScrollView
 
-@property (weak, nonatomic) AddListViewDelegate* addListDelegate;
+@property (weak, nonatomic) id<AddListViewDelegate> addListDelegate;
 
 @end
 
