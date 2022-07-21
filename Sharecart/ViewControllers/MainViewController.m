@@ -14,7 +14,7 @@
 #import "SharecartUpdate.h"
 #import "SharecartItem.h"
 #import "ParseLiveQuery/ParseLiveQuery-umbrella.h"
-
+#import "Sharecart-Swift.h"
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet ListViewController *selectedView;
@@ -141,26 +141,19 @@
     }
 }
 - (IBAction)addListTap:(id)sender {
-    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: nil
-                                                                                     message: @"Create New List"
-                                                                                 preferredStyle:UIAlertControllerStyleAlert];
-       [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-           textField.placeholder = @"List Name";
-       }];
-       [alertController addAction:[UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-           UITextField * listNameField = alertController.textFields[0];
+    [SwiftAdapter displayAddListWithDelegate:self];
+}
 
-           [PFCloud callFunctionInBackground:@"newList" withParameters:@{@"name": listNameField.text} block:^(id  _Nullable object, NSError * _Nullable error) {
-               if (!error) {
-                   [self.lists insertObject:object atIndex:0];
-                   [self.tableView reloadData];
-               }
-               else {
-                   // TODO: Prompt user to check connection and try again
-               }
-           }];
-       }]];
-       [self presentViewController:alertController animated:YES completion:nil];
+#pragma mark - Add List View Delegate
+
+- (void)onListAdded:(SharecartList *)list {
+    [self.lists insertObject:list atIndex:0];
+    [self.tableView reloadData];
+}
+
+- (void)onListJoined:(SharecartList *)list {
+    [self.lists insertObject:list atIndex:0];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table View

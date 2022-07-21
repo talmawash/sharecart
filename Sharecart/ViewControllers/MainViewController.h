@@ -6,10 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddList.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MainViewController : UIViewController <UITableViewDataSource>
+@interface MainViewController : UIViewController <UITableViewDataSource, AddListViewDelegate>
 
 @end
 
